@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'component/my_widget.dart';  // เรียกใช้ widget
+import 'component/first_page.dart';
+import 'component/second_page.dart'; // ✅ ต้อง import
 
 void main() {
-  runApp(const MyApp()); // เริ่มแอปด้วย MyApp
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,9 +11,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyWidget(), // ใช้ widget ที่ import มา
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      initialRoute: '/', // กำหนดหน้าเริ่มต้น
+      routes: {
+        '/': (context) => const FirstPage(),   // Route สำหรับหน้าแรก
+        '/second': (context) => const SecondPage(), // Route สำหรับหน้าสอง
+      },
     );
   }
 }
