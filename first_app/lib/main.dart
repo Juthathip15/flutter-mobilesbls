@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'component/my_widget.dart';  // เรียกใช้ widget
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp()); // เริ่มแอปด้วย MyApp
 }
 
 class MyApp extends StatelessWidget {
@@ -9,39 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-      ),
-      home: const MyWidget(),
-    );
-  }
-}
-
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('First Time App'),
-        // backgroundColor: Colors.blue,
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start, 
-        children: [
-          Row(mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(width: 100, height: 100, color: Colors.red),
-              Container(width: 100, height: 100, color: Colors.blue),
-              Container(width: 100, height: 100, color: Colors.green),
-            ],
-          ),
-        ],
-      ),
+      home: MyWidget(), // ใช้ widget ที่ import มา
     );
   }
 }
